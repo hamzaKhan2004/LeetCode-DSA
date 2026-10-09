@@ -3,20 +3,20 @@
  * @return {number}
  */
 var maxAbsoluteSum = function(nums) {
-    let maxEnding = 0;
-    let minEnding = 0;
-    let maxSum = 0;
-    let minSum = 0;
+    let maxEnding = nums[0];
+    let minEnding = nums[0];
+    let maxSum = nums[0];
+    let minSum = nums[0];
 
-    for (let i = 0; i < nums.length; i++) {
+    for (let i = 1; i < nums.length; i++) {
         let val = nums[i];
 
-        maxEnding = Math.max(0, maxEnding + val);
-        minEnding = Math.min(0, minEnding + val);
+        maxEnding = Math.max(val, maxEnding + val);
+        minEnding = Math.min(val, minEnding + val);
 
         maxSum = Math.max(maxSum, maxEnding);
         minSum = Math.min(minSum, minEnding);
     }
 
-    return Math.max(maxSum, Math.abs(minSum));
+    return Math.max(Math.abs(maxSum), Math.abs(minSum));
 };
