@@ -17,11 +17,10 @@ var deleteDuplicates = function(head) {
     while(right != null){
         if(left.val === right.val){
             left.next = right.next;
-            right = right.next;
         }else{
             left = right;
-            right = right.next;
         }
+        right = right.next;
     }
     return head;
 
